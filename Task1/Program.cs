@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Threading;
 using System.Collections.Generic;
-using System;
+
 
 namespace Task1
 {
@@ -15,14 +15,14 @@ namespace Task1
 			for (var i = 0; i < limitProcess; i++)
 			{
 				notepadsProcess.Add(StartNotepadProcess());
+
+				Thread.Sleep(TimerMS());
 			}
 
 			if (notepadsProcess.Count == 0)
 			{
 				return;
 			}
-
-			Thread.Sleep(TimerMS());
 
 			foreach (var notepadProcess in notepadsProcess)
 			{
@@ -37,7 +37,7 @@ namespace Task1
 
 		private static int TimerMS()
 		{
-			return 2000;
+			return 1000;
 		}
 
 		private static void CloseNotepad(Process processNotepad)
